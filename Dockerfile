@@ -1,7 +1,7 @@
 FROM ibmjava:8-jre-alpine
 
 # Install required packages
-RUN apk add --no-cache bash curl unzip netcat-openbsd
+RUN apk add --no-cache bash curl unzip netcat-openbsd tmux
 
 # Create minecraft user and directory
 RUN addgroup -g 1000 minecraft && \
@@ -85,7 +85,7 @@ RUN echo '#!/bin/bash' > /entrypoint.sh && \
     echo 'cd /server' >> /entrypoint.sh && \
     echo '' >> /entrypoint.sh && \
     echo '# Start the server' >> /entrypoint.sh && \
-    echo 'exec java -Xmx${JAVA_MEMORY:-2G} -Xms${JAVA_MEMORY:-2G} -jar Tekkit.jar nogui' >> /entrypoint.sh && \
+    echo 'tmux new-session -d -s tekkit -- bash -lc "java -Xmx${JAVA_MEMORY:-2G} -Xms${JAVA_MEMORY:-2G} -jar Tekkit.jar nogui"' >> /entrypoint.sh && \
     chmod +x /entrypoint.sh
 
 # Set ownership of setup files
