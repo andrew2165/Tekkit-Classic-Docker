@@ -1,5 +1,4 @@
-#FROM openjdk:8-jre-alpine
-FROM openjdk:8-alpine
+FROM ibmjava:8-jre-alpine
 
 # Install required packages
 RUN apk add --no-cache bash curl unzip netcat-openbsd
