@@ -1,10 +1,10 @@
 # Tekkit Classic Docker Server
-A containerized Tekkit Classic Minecraft server. Available as a pre-built image on [Docker Hub](https://hub.docker.com/r/wizardnun3/tekkit-classic).
+A containerized Tekkit Classic Minecraft server.
 
 ## Quick Start
 
 ```bash
-git clone https://github.com/Jiffy953/Tekkit-Classic-Docker
+git clone https://github.com/andrew2165/Tekkit-Classic-Docker
 cd Tekkit-Classic-Docker
 docker compose up -d
 ```
